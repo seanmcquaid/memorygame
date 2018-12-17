@@ -1,0 +1,74 @@
+img{
+    height: 639px;
+    width: 480px;
+}
+
+
+/* child of the grandparent and is the cubve it is a 3d place for the children to play inside of  */
+.card {
+    width: 480px;
+    perspective: 400px;
+    border: 2px solid cornflowerblue;
+}
+
+
+/* a child of parent, and is able to play in 3d of parents */
+.card-holder{
+    width: 480px;
+    height: 639px;
+    transition: all 2s;
+    /* the children of card holder with have absolute position */
+    position: relative;
+    /* tell all child elements they are in 3d land */
+    /* when you transform, do so like a good 3d child */
+    transform-style: preserve-3d;
+    transform-origin: 20% 40%;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* If you can't see the front... you can't see anything. */
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+/* Make the parent div obviouis: */
+#parent{
+    height: 200px;
+    width: 200px;
+    margin: 50px;
+    padding: 10px;
+    background-color: #4f5f6c;
+    /* perspective: 200px; */
+    /* perspective: 100px; */
+    perspective: 800px;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+#parent div{
+    padding: 50px;
+    border: 1px solid #0912ee;
+}
+
+#threeD{
+    background-color: #0f0;
+    transform: rotateX(45deg);
+}
+
+#threeD2{
+    background-color: #f0f;
+    transform: rotateY(45deg);
+}
+
+#threeD3{
+    background-color: #00f;
+    transform: rotateZ(45deg);
+}
