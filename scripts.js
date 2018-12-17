@@ -20,6 +20,7 @@ $(document).ready(()=>{
             cards.push(`<img src="./images/monsters-${monsterNumber}.png" />`);
             cards.push(`<img src="./images/monsters-${monsterNumber}.png" />`);
         }
+        cards = shuffleDeck(cards);
         // console.log(cards);
         let memoryHTML = "";
         // init a var to store our html inside of and loop through all of the cards
@@ -63,3 +64,19 @@ $(document).ready(()=>{
         })
     })
 })
+
+function shuffleDeck(aDeckToBeShuffled){
+    // loop a lot
+    // when the loop is done, the array will be shuffled
+    for(let i =0; i < 100000; i++){
+        let rand1 = Math.floor(Math.random() * aDeckToBeShuffled.length);
+        let rand2 = Math.floor(Math.random() * aDeckToBeShuffled.length);
+        // we need to switch adeckToBeShuffled[rand1] with adeckToBeShuffled[rand2]
+        // but we have to save the value of one of them so we can keep it for later
+        let card1Defender = aDeckToBeShuffled[rand1];
+        aDeckToBeShuffled[rand1] = aDeckToBeShuffled[rand2];
+        aDeckToBeShuffled[rand2] = card1Defender;
+    }
+    return aDeckToBeShuffled;
+}
+
